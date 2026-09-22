@@ -1,0 +1,62 @@
+{
+  "name": "Bulk High-Value Users",
+  "brand": "NumDetect",
+  "repository": "numdetect/phone-bulk-high-value-api",
+  "description": "Find the records worth reviewing first. Combine high-end device characteristics with recent network activity to return a yes/no potential high-value-user signal for service, membership and campaign prioritization; it is a detection signal, not proof of income or purchase.",
+  "official_site": "https://numdetect.com",
+  "landing_page": "https://numdetect.com/products/number_high_value_batch",
+  "canonical_docs": "https://numdetect.com/api-docs",
+  "base_url": "https://numdetect.com",
+  "auth": {
+    "type": "api_key",
+    "header": "X-API-Key"
+  },
+  "mode": "async-bulk",
+  "product": "number_high_value_batch",
+  "identifier_kind": "phone",
+  "requires_country": true,
+  "endpoints": {
+    "submit": {
+      "method": "POST",
+      "path": "/api/v1/bulk-tasks"
+    },
+    "status": {
+      "method": "GET",
+      "path": "/api/v1/bulk-tasks/{id}"
+    },
+    "balance": {
+      "method": "GET",
+      "path": "/api/v1/balance"
+    }
+  },
+  "limits": {
+    "min_items": 500,
+    "max_items": 100000,
+    "poll_interval_seconds": 30,
+    "file_formats": [
+      "txt",
+      "csv"
+    ]
+  },
+  "result_fields": [
+    {
+      "name": "Mobile Number",
+      "example": "+17253100591",
+      "description": "The mobile number associated with this check, used to match the result back to the uploaded record. It does not provide identity, device model or other personal-profile data."
+    },
+    {
+      "name": "Result",
+      "example": "yes",
+      "description": "A yes/no supporting signal derived from high-end device characteristics and recent network activity. It can guide review priority but does not confirm income, assets, purchasing capacity or actual spend."
+    }
+  ],
+  "statuses": [
+    "processing",
+    "success",
+    "failed"
+  ],
+  "pricing_url": "https://numdetect.com/pricing",
+  "maintainer": "NumDetect",
+  "license": "MIT",
+  "last_reviewed": "2026-09-22"
+}
